@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
 
- before_action :set_user, only: [:show, :edit, :update, :destroy]
- before_action :require_login, only: [:show, :edit, :update, :destroy]
+ before_action :set_user, only: [:show, :edit, :update, :destroy, :coffee2, :coffee3, :coffee4]
+
 
   def index
     @users = User.all
   end
 
   def show
+    # @user = User.find_by(:id => session[:user_id])
   end
 
   def new
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_url, notice: "User created successfully."
+      redirect_to coffee_url
     else
       render 'new'
     end
@@ -54,7 +55,7 @@ class UsersController < ApplicationController
     @user.roast = params[:roast]
 
     if @user.save
-      redirect_to users_url, notice: "User updated successfully."
+      redirect_to users_url
     else
       render 'edit'
     end
@@ -66,16 +67,20 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: "Account deleted."
   end
 
+  def coffee2
+  end
+
+  def coffee3
+  end
+
+  def coffee4
+  end
+
 private
 
-  def require_login
-    if params[:id] != session[:user_id]
-      redirect_to users_url, notice: "Nice try!"
-    end
+  def set_user
+    @user = User.find(session[:user_id])
   end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
 
 end

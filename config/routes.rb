@@ -1,10 +1,13 @@
 Coffees::Application.routes.draw do
 
   root 'pages#index'
-  get "/login" => 'sessions#new'
+  get "/login" => 'sessions#new', :as => "login"
   get "/logout" => 'sessions#destroy'
   post "/sessions" => 'sessions#create'
-
+  get "coffee" => 'pages#coffee'
+  get "coffee2" => 'users#coffee2'
+  get "coffee3" => 'users#coffee3'
+  get "coffee4" => 'users#coffee4'
   # Routes for the User resource:
   # CREATE
   get '/users/new', controller: 'users', action: 'new', as: 'new_user'

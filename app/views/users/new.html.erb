@@ -1,4 +1,6 @@
 <% errors = @user.errors.full_messages %>
+<%= form_tag(users_url, method: 'post') do %>
+
 <div>
 <h1>What shade of roast do you prefer?</h1>
 <%= label_tag :roast %>
@@ -20,7 +22,7 @@
 
 <h1>Create an Account</h1>
 
-<%= form_tag(users_url, method: 'post') do %>
+
   <div>
     <%= label_tag :first_name %><br />
     <%= text_field_tag :first_name %>

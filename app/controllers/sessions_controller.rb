@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       if user.authenticate(params[:password])
         # Yay!
         session[:user_id] = user.id
-        redirect_to root_url
+        redirect_to coffee_url
       else
 
         render 'new'
