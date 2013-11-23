@@ -1,0 +1,78 @@
+<% errors = @user.errors.full_messages %>
+<div>
+<h1>What shade of roast do you prefer?</h1>
+<%= label_tag :roast %>
+<%= select_tag :roast, "<option>Light</option><option>Medium</option><option>Dark</option>".html_safe %>
+</div>
+
+<div>
+<h1>How do you make your coffee?</h1>
+
+<%= label_tag :make_coffee %>
+<%= select_tag :make_coffee, "<option>Pour over</option><option>Drip Coffee Machine</option><option>French Press</option><option>Espresso Machine</option>".html_safe %>
+</div>
+
+<div>
+<h1>How often do you drink coffee?</h1>
+<%= label_tag :drink_coffee %>
+<%= select_tag :drink_coffee, "<option>1-2 Cups a Month</option><option>3-4 Cups a Month</option><option>1-2 Cups a Week</option><option>3-4 Cups a Week</option><option>Everyday</option><option>More!</option>".html_safe %>
+</div>
+
+<h1>Create an Account</h1>
+
+<%= form_tag(users_url, method: 'post') do %>
+  <div>
+    <%= label_tag :first_name %><br />
+    <%= text_field_tag :first_name %>
+  </div>
+
+  <div>
+    <%= label_tag :last_name %><br />
+    <%= text_field_tag :last_name %>
+  </div>
+
+  <div>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email %>
+  </div>
+
+  <div>
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+
+  <div>
+    <%= label_tag :password_confirmation %><br />
+    <%= password_field_tag :password_confirmation %>
+  </div>
+
+  <div>
+    <%= label_tag :phone %><br />
+    <%= text_field_tag :phone %>
+  </div>
+
+  <div>
+    <%= label_tag :address %><br />
+    <%= text_field_tag :address %>
+  </div>
+
+  <div>
+    <%= label_tag :city %><br />
+    <%= text_field_tag :city %>
+  </div>
+
+  <div>
+    <%= label_tag :state %><br />
+    <%= text_field_tag :state %>
+  </div>
+
+  <div>
+    <%= label_tag :zip %><br />
+    <%= text_field_tag :zip %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create User" %>
+  </div>
+<% end %>
